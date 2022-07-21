@@ -3,78 +3,47 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta name="description" content="Exemplos básicos de html">
+  <meta name="description" content="Exemplo de formulário de contato em html">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>HTML Básico</title>
+  <title>Formulário de contato</title>
 </head>
 
 <body>
-  <h1>Heading</h1>
-  <h2>Heading</h2>
-  <h3>Heading</h3>
-  <h4>Heading</h4>
-  <h5>Heading</h5>
-  <h6>Heading</h6>
+  <h1>Contato</h1>
 
-  <p>Parágrafo teste</p>
-  <pre>
-    Parágrafo          teste           123
+  <p>Este texto é <strong>importante!</strong></p>
 
-    456
-  </pre>
-  <p>Parágrafo</p>
-  <p>Parágrafo</p>
-  <p>Parágrafo</p>
+  <form>
+    <label for="nome">Nome</label>
+    <input name="Nome" id="nome" placeholder="Digite seu nome" type="text" tabindex="1">
+    <br>
+    <br>
+    <label for="email" tabindex="3">Email</label>
+    <input name="Email" id="email" placeholder="Digite seu e-mail" type="email">
+    <br>
+    <br>
+    <label for="comentario">Comentário</label>
+    <textarea name="Comentario" id="comentario" placeholder="Digite seu comentário" tabindex="2"></textarea>
+    <br>
+    <br>
+    <label for="nota">Nota</label>
+    <select id="nota" name="Nota">
+      <option value="5">Muito ruim</option>
+      <option value="6">Ruim</option>
+      <option value="7">marromeno</option>
+      <option value="8">Bom</option>
+      <option value="9">Muito bom</option>
+      <option value="10">Excelente</option>
+    </select>
+    <br>
+    <br>
+    <button>Enviar</input>
+  </form>
 
-  <div>Essa é uma div</div>
+  <a href="https://g1.globo.com" target="_blank">Vai pra globo</a>
 
-  <img
-    src="https://mma.prnewswire.com/media/1796075/OSF_Digital_OSF_Digital_Secures__100M_in_Funding_to_Bolster_its.jpg"
-    height="55px" width="400px" alt="imagem de teste">
-  <hr>
-  <br>
-  <br>
-  <br>
-  <div>teste</div>
-
-
-  <ol>
-    <li>
-      <p>item 1</p>
-    </li>
-    <li><img
-        src="https://mma.prnewswire.com/media/1796075/OSF_Digital_OSF_Digital_Secures__100M_in_Funding_to_Bolster_its.jpg"
-        height="55px" width="400px" alt="imagem de teste"></li>
-    <li>item 3</li>
-  </ol>
-
-  <ul>
-    <li>item 1</li>
-    <li>item 2</li>
-    <li>item 3</li>
-  </ul>
-
-  <table>
-    <tr>
-      <th>titulo 1</th>
-      <th>titulo 2</th>
-      <th>titulo 3</th>
-    </tr>
-    <tr>
-      <td>data 1</td>
-      <td>data 2</td>
-      <td>data 3</td>
-    </tr>
-    <tr>
-      <td>data 1</td>
-      <td colspan="2">data data 2</td>
-    </tr>
-  </table>
-
-  <br>
-  <br>
-  <br>
-  <br>
 </body>
+
+
 
 </html>
