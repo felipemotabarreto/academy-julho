@@ -19,3 +19,8 @@
 
 - https://github.com/SalesMikael/Academy-julho-OSF
 - https://vercel.com/salesmikael/academy-julho-osf
+
+# Fransicso
+
+- https://github.com/Chagas823/osf-academy
+- https://osf-academy-phi.vercel.app/

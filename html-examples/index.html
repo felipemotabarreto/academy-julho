@@ -5,42 +5,47 @@
   <meta charset="UTF-8">
   <meta name="description" content="Exemplo de formulário de contato em html">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="index.css" type="text/css">
   <title>Formulário de contato</title>
+  <style>
+    .container {
+      position: relative;
+      width: 500px;
+    }
+
+    .content1 {
+      background-color: red;
+      width: 300px;
+      height: 300px;
+    }
+
+    .content2 {
+      background-color: green;
+      position: relative;
+      width: calc(100% - 700px);
+      height: 300px;
+      top: 0;
+      left: 100px;
+    }
+  </style>
 </head>
 
 <body>
-  <h1>Contato</h1>
-
-  <p>Este texto é <strong>importante!</strong></p>
-
-  <form>
-    <label for="nome">Nome</label>
-    <input name="Nome" id="nome" placeholder="Digite seu nome" type="text" tabindex="1">
-    <br>
-    <br>
-    <label for="email" tabindex="3">Email</label>
-    <input name="Email" id="email" placeholder="Digite seu e-mail" type="email">
-    <br>
-    <br>
-    <label for="comentario">Comentário</label>
-    <textarea name="Comentario" id="comentario" placeholder="Digite seu comentário" tabindex="2"></textarea>
-    <br>
-    <br>
-    <label for="nota">Nota</label>
-    <select id="nota" name="Nota">
-      <option value="5">Muito ruim</option>
-      <option value="6">Ruim</option>
-      <option value="7">marromeno</option>
-      <option value="8">Bom</option>
-      <option value="9">Muito bom</option>
-      <option value="10">Excelente</option>
-    </select>
-    <br>
-    <br>
-    <button>Enviar</input>
-  </form>
-
-  <a href="https://g1.globo.com" target="_blank">Vai pra globo</a>
+  <h1>Loja exemplo</h1>
+  <div class="secao-produtos">
+    <h2>Título da seção</h2>
+    <div>
+      <div class="lista-produtos">
+        <div class="produto">
+          <p>Produto 1</p>
+        </div>
+        <div class="produto">Produto 2</div>
+        <div class="produto">Produto 3</div>
+        <div class="produto">Produto 4</div>
+        <div class="produto">Produto 5</div>
+      </div>
+    </div>
+  </div>
 
 </body>
 
