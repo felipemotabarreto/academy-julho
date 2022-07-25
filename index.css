@@ -37,4 +37,5 @@ body {
 
 .hidden {
   opacity: 0;
+  height: 0;
 }
