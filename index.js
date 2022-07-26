@@ -1,44 +1,28 @@
-const listContainer = document.querySelector(".lista-produtos");
-const cardCount = 5;
-const productCardWidth = 220;
+const frutas = [
+  { name: "Laranja", count: 5 },
+  { name: "Banana", count: 2 },
+  { name: "Maçã", count: 9 },
+];
 
-function addHiddenCards() {
-  const cardsPerRow = Math.floor(
-    listContainer.getBoundingClientRect().width / productCardWidth
-  );
-  const cardsToAdd = cardsPerRow - (cardCount % cardsPerRow);
+// const { count } = frutas.find(({ name }) => name === "Maçã");
 
-  for (let i = 0; i < cardsToAdd; i++) {
-    const cardToAdd = document.createElement("div");
-    cardToAdd.classList.add("produto");
-    cardToAdd.classList.add("hidden");
-    listContainer.appendChild(cardToAdd);
-  }
-}
+// console.log(count);
 
-function removeHiddenCards() {
-  const hiddenCards = document.querySelectorAll(".hidden");
-  for (let i = 0; i < hiddenCards.length; i++) {
-    const hiddenCard = hiddenCards[i];
-    hiddenCard.remove();
-  }
-}
+const minCount = 10;
 
-addHiddenCards();
+const frutasPertoDeAcabar = frutas.filter(({ count }) => count < minCount);
 
-let timer;
+// console.log(
+//   "Faltam comprar: ",
+//   frutasPertoDeAcabar.map(({ name }) => name)
+// );
 
-function resizeHandlerWithDebounce(debounceTime = 1000) {
-  if (timer) {
-    clearTimeout(timer);
-  }
+const frutasFaltando = frutasPertoDeAcabar.map(({ name }) => name).join(", ");
+const [ultimo, ...resto] = frutasFaltando.split(", ").reverse();
 
-  timer = setTimeout(() => {
-    console.log("trigger");
-    removeHiddenCards();
-    addHiddenCards();
-    timer = null;
-  }, debounceTime);
-}
+// console.log(ultimo);
+// console.log(resto);
 
-window.onresize = () => resizeHandlerWithDebounce(5000);
+console.log(`Faltam comprar: ${resto.reverse().join(", ")} e ${ultimo}`);
+
+// frutasPertoDeAcabar.reduce()
