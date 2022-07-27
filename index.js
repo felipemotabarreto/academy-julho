@@ -4,25 +4,25 @@ const frutas = [
   { name: "Maçã", count: 9 },
 ];
 
-// const { count } = frutas.find(({ name }) => name === "Maçã");
+const minCount = 5;
 
-// console.log(count);
+const { getInfo } = frutas
+  .filter(({ count }) => minCount > count)
+  .reduce(
+    (total, { name, count }) => ({
+      getInfo: () => ({
+        texto: `${total.getInfo().texto}Falta comprar ${name}`,
+        totalFrutasAComprar:
+          total.getInfo().totalFrutasAComprar + minCount - count,
+      }),
+    }),
+    {
+      getInfo: () => ({
+        texto: "",
+        totalFrutasAComprar: 0,
+      }),
+    }
+  );
 
-const minCount = 10;
-
-const frutasPertoDeAcabar = frutas.filter(({ count }) => count < minCount);
-
-// console.log(
-//   "Faltam comprar: ",
-//   frutasPertoDeAcabar.map(({ name }) => name)
-// );
-
-const frutasFaltando = frutasPertoDeAcabar.map(({ name }) => name).join(", ");
-const [ultimo, ...resto] = frutasFaltando.split(", ").reverse();
-
-// console.log(ultimo);
-// console.log(resto);
-
-console.log(`Faltam comprar: ${resto.reverse().join(", ")} e ${ultimo}`);
-
-// frutasPertoDeAcabar.reduce()
+console.log(getInfo().texto);
+console.log(`Faltam comprar ${getInfo().totalFrutasAComprar} frutas.`);

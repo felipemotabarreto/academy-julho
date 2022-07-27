@@ -24,3 +24,7 @@
 
 - https://github.com/Chagas823/osf-academy
 - https://osf-academy-phi.vercel.app/
+
+# Linhares
+
+- https://github.com/Fconeto/Academy-julho
