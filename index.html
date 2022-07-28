@@ -11,15 +11,13 @@
 
 <body>
   <div id="root">
-    <div>Click me!</div>
-    <br>
-    <button onclick="handleClick()" class="habilitar">Habilitar alerta</button>
+    <h1>Lista de pokémons</h1>
+    <ul id="lista-pokemons">
+
+    </ul>
+    <p id="count">Count: 0</p>
+    <button onclick="obterPokemons()">Obter Pokemons</button>
     <script src="index.js"></script>
-    <script>
-      function handleChange(value) {
-        alert(value);
-      }
-    </script>
 </body>
 
 

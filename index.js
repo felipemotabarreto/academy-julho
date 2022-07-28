@@ -1,33 +1,33 @@
-// const root = document.querySelector("div");
+obterPokemons();
 
-// root.querySelector("div")?.classList.add("test");
-// const div = document.createElement("div");
+async function obterPokemons() {
+  const listaPokemons = document.getElementById("lista-pokemons");
 
-// div.addEventListener("click", listener);
+  const loading = document.createElement("li");
+  loading.innerText = "Loading...";
+  loading.id = "loading";
+  listaPokemons.appendChild(loading);
 
-// div.innerText = "<h1>Clique aqui!</h1>";
-// root.appendChild(div);
+  try {
+    const resultado = await fetch("https://pokeapi.co/api/v2/pokemon");
+    const { count, results } = await resultado.json();
 
-let alertHabilitado = false;
-
-const listener = () => {
-  alert("Click!");
-};
-
-function handleClick() {
-  const root = document.querySelector("div");
-  const div = root.querySelector("div");
-  const button = root.querySelector("button");
-
-  if (alertHabilitado) {
-    div.removeEventListener("click", listener);
-    button.innerText = "Habilitar alerta";
-    button.classList.add("habilitar");
-  } else {
-    div.addEventListener("click", listener);
-    button.innerText = "Desabilitar alerta";
-    button.classList.remove("habilitar");
+    document.getElementById("count").innerText = `Count: ${count}`;
+    results.forEach(async ({ name, url }) => {
+      const detalhes = await fetch(url);
+      const { types } = await detalhes.json();
+      const [
+        {
+          type: { name: nameTipo },
+        },
+      ] = types;
+      const item = document.createElement("li");
+      item.innerText = `${name} - ${nameTipo}`;
+      listaPokemons.appendChild(item);
+    });
+  } catch {
+    alert("deu erro!");
+  } finally {
+    loading.remove();
   }
-
-  alertHabilitado = !alertHabilitado;
 }
