@@ -1,33 +1,35 @@
-obterPokemons();
+// const required = (minLength) => (value) => value?.length > minLength;
 
-async function obterPokemons() {
-  const listaPokemons = document.getElementById("lista-pokemons");
+function required(minLength) {
+  return function validate(value) {
+    return value?.length > minLength;
+  };
+}
 
-  const loading = document.createElement("li");
-  loading.innerText = "Loading...";
-  loading.id = "loading";
-  listaPokemons.appendChild(loading);
+var nameValue = "";
+var emailValue = "";
 
-  try {
-    const resultado = await fetch("https://pokeapi.co/api/v2/pokemon");
-    const { count, results } = await resultado.json();
+const regrasDeValidacao = {
+  nameValue: [required(2), nomeESobrenome()],
+  emailValue: [required(5), validEmail(), novoEmail()],
+};
 
-    document.getElementById("count").innerText = `Count: ${count}`;
-    results.forEach(async ({ name, url }) => {
-      const detalhes = await fetch(url);
-      const { types } = await detalhes.json();
-      const [
-        {
-          type: { name: nameTipo },
-        },
-      ] = types;
-      const item = document.createElement("li");
-      item.innerText = `${name} - ${nameTipo}`;
-      listaPokemons.appendChild(item);
-    });
-  } catch {
-    alert("deu erro!");
-  } finally {
-    loading.remove();
+function validador(onSuccess) {
+  if (
+    Object.keys(regrasDeValidacao).every((chave) => {
+      const validar = regrasDeValidacao[chave];
+      const valor = window[chave];
+      return validar(valor);
+    })
+  ) {
+    onSuccess();
   }
+}
+
+function handleChange(id, value) {
+  window[id] = value;
+}
+
+function handleSubmit() {
+  console.log({ nameValue, emailValue });
 }

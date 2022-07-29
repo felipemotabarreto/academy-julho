@@ -11,12 +11,11 @@
 
 <body>
   <div id="root">
-    <h1>Lista de pokémons</h1>
-    <ul id="lista-pokemons">
 
-    </ul>
-    <p id="count">Count: 0</p>
-    <button onclick="obterPokemons()">Obter Pokemons</button>
+    <input id="nameValue" placeholder="nome" onchange="handleChange(this.id, this.value)">
+    <input id="emailValue" placeholder="email" onchange="handleChange(this.id, this.value)">
+    <button onclick="validador(handleSubmit)">Enviar</button>
+
     <script src="index.js"></script>
 </body>
 
