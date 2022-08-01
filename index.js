@@ -6,7 +6,7 @@ function required(minLength) {
   };
 }
 
-var nameValue = "Aguiar";
+var nameValue = "Felipe e Aguiar";
 var emailValue = "";
 
 const regrasDeValidacao = {
